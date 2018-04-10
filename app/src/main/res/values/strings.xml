@@ -2,4 +2,6 @@
     <string name="app_name">Real Time Shopping List</string>
     <string name="list_code">List Code</string>
     <string name="submit">submit</string>
+    <string name="zero">0</string>
+    <string name="product_name">Product Name</string>
 </resources>
