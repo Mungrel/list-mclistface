@@ -1,7 +1,9 @@
-package kres.realtimeshoppinglist;
+package kres.realtimeshoppinglist.activities;
 
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
+
+        import kres.realtimeshoppinglist.R;
 
 public class JoinActivity extends AppCompatActivity {
 
