@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".MainActivity">
+    tools:context=".activities.JoinActivity">
 
     <EditText
         android:id="@+id/list_code_edit_text"
