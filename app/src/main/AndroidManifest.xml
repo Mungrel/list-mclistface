@@ -18,6 +18,7 @@
         </activity>
         <activity android:name=".activities.ListActivity" />
         <activity android:name=".activities.CreateActivity" />
+        <activity android:name=".activities.JoinCreateActivity"></activity>
     </application>
 
 </manifest>
