@@ -4,4 +4,6 @@
     <string name="submit">submit</string>
     <string name="zero">0</string>
     <string name="product_name">Product Name</string>
+    <string name="list_name">List Name</string>
+    <string name="create">create</string>
 </resources>
