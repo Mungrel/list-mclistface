@@ -9,6 +9,7 @@ import com.google.firebase.database.DatabaseError;
 import java.util.ArrayList;
 import java.util.List;
 
+import kres.realtimeshoppinglist.model.Product;
 import kres.realtimeshoppinglist.util.ProductListAdapter;
 
 public class ListChangeListener implements ChildEventListener {
@@ -22,12 +23,20 @@ public class ListChangeListener implements ChildEventListener {
     }
 
     @Override
-    public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+    public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
         Log.d("LIST_CHANGE", "Child Added");
+
+        Product product = dataSnapshot.getValue(Product.class);
+        product.setID(dataSnapshot.getKey());
+
+        int insertionIndex = (previousChildName == null) ? 0 : keys.indexOf(previousChildName) + 1;
+        keys.add(insertionIndex, dataSnapshot.getKey());
+
+        productListAdapter.insertItem(insertionIndex, product);
     }
 
     @Override
-    public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+    public void onChildChanged(DataSnapshot dataSnapshot, String previousChildName) {
         Log.d("LIST_CHANGE", "Child Added");
     }
 
@@ -37,7 +46,7 @@ public class ListChangeListener implements ChildEventListener {
     }
 
     @Override
-    public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+    public void onChildMoved(DataSnapshot dataSnapshot, String previousChildName) {
         Log.d("LIST_CHANGE", "Child Added");
     }
 
