@@ -59,6 +59,16 @@ public class ListChangeListener implements ChildEventListener {
     @Override
     public void onChildMoved(DataSnapshot dataSnapshot, String previousChildName) {
         Log.d("LIST_CHANGE", "Child Added");
+
+        String movedTrackKey = dataSnapshot.getKey();
+
+        int oldIndex = keys.indexOf(movedTrackKey);
+        keys.remove(oldIndex);
+        int newIndex = (previousChildName == null) ? 0 : keys.indexOf(previousChildName) + 1;
+
+        keys.add(newIndex, movedTrackKey);
+
+        productListAdapter.moveItem(oldIndex, newIndex);
     }
 
     @Override
