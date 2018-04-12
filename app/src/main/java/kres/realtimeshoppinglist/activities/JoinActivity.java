@@ -28,8 +28,6 @@ public class JoinActivity extends AppCompatActivity {
                 }
 
                 // TODO: Make some Firebase call to check list's existence
-                Intent intent = new Intent(JoinActivity.this, ListActivity.class);
-                startActivity(intent);
             }
         });
     }
