@@ -4,7 +4,7 @@ import com.google.firebase.database.DatabaseReference;
 
 import kres.realtimeshoppinglist.model.Product;
 
-public class FirebaseManager {
+public class ProductListManager {
 
     public void addItem(String listID, Product product) {
         DatabaseReference ref = FirebaseRefs.getShoppingListRef(listID);
