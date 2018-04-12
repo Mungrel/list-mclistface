@@ -9,12 +9,16 @@ import com.google.firebase.database.DatabaseError;
 import java.util.ArrayList;
 import java.util.List;
 
+import kres.realtimeshoppinglist.util.ProductListAdapter;
+
 public class ListChangeListener implements ChildEventListener {
 
     private List<String> keys;
+    private ProductListAdapter productListAdapter;
 
-    public ListChangeListener() {
+    public ListChangeListener(ProductListAdapter productListAdapter) {
         this.keys = new ArrayList<>();
+        this.productListAdapter = productListAdapter;
     }
 
     @Override
