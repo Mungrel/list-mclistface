@@ -2,6 +2,7 @@ package kres.realtimeshoppinglist.model;
 
 public class Product {
 
+    private String ID;
     private String name;
     private int quantity;
     private boolean bought;
@@ -10,6 +11,14 @@ public class Product {
         this.name = name;
         this.quantity = quantity;
         this.bought = false;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
     }
 
     public String getName() {
