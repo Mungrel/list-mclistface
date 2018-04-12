@@ -28,6 +28,8 @@ public class CreateActivity extends AppCompatActivity {
                 }
 
                 // TODO: Create the list in Firebase
+                Intent intent = new Intent(CreateActivity.this, ListActivity.class);
+                startActivity(intent);
             }
         });
     }
