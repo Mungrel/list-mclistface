@@ -49,6 +49,11 @@ public class ListChangeListener implements ChildEventListener {
     @Override
     public void onChildRemoved(DataSnapshot dataSnapshot) {
         Log.d("LIST_CHANGE", "Child Added");
+
+        int removalIndex = keys.indexOf(dataSnapshot.getKey());
+        keys.remove(removalIndex);
+
+        productListAdapter.removeItem(removalIndex);
     }
 
     @Override
