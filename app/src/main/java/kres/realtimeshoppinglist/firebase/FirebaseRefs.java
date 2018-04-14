@@ -1,7 +1,5 @@
 package kres.realtimeshoppinglist.firebase;
 
-import android.provider.ContactsContract;
-
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
