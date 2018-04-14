@@ -1,7 +1,8 @@
-package kres.realtimeshoppinglist.firebase;
+package kres.realtimeshoppinglist.firebase.productList;
 
 import com.google.firebase.database.DatabaseReference;
 
+import kres.realtimeshoppinglist.firebase.FirebaseRefs;
 import kres.realtimeshoppinglist.model.Product;
 
 public class ProductListManager {
