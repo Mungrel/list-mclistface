@@ -12,12 +12,12 @@ import java.util.List;
 import kres.realtimeshoppinglist.model.Product;
 import kres.realtimeshoppinglist.util.ProductListAdapter;
 
-public class ListChangeListener implements ChildEventListener {
+public class ProductListChangeListener implements ChildEventListener {
 
     private List<String> keys;
     private ProductListAdapter productListAdapter;
 
-    public ListChangeListener(ProductListAdapter productListAdapter) {
+    public ProductListChangeListener(ProductListAdapter productListAdapter) {
         this.keys = new ArrayList<>();
         this.productListAdapter = productListAdapter;
     }
