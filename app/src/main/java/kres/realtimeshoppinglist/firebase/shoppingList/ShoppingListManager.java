@@ -7,7 +7,7 @@ import kres.realtimeshoppinglist.model.ShoppingList;
 
 public class ShoppingListManager {
 
-    public ShoppingList createShoppingList(String listName) {
+    public static ShoppingList createShoppingList(String listName) {
         DatabaseReference newListRef = FirebaseRefs.getShoppingListRootRef().push();
         String listID = newListRef.getKey();
 
@@ -17,15 +17,14 @@ public class ShoppingListManager {
         return shoppingList;
     }
 
-    public void deleteShoppingList(String listID) {
+    public static void deleteShoppingList(String listID) {
         DatabaseReference listRef = FirebaseRefs.getShoppingListRef(listID);
         listRef.removeValue();
     }
 
-    public void editShoppingListName(String listID, String newListName) {
+    public static void editShoppingListName(String listID, String newListName) {
         DatabaseReference listRef = FirebaseRefs.getShoppingListRef(listID);
         DatabaseReference listNameRef = listRef.child("name");
         listNameRef.setValue(newListName);
     }
-
 }
