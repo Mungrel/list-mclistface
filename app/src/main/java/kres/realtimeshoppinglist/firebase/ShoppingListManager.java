@@ -16,4 +16,9 @@ public class ShoppingListManager {
         return shoppingList;
     }
 
+    public void deleteShoppingList(String listID) {
+        DatabaseReference listRef = FirebaseRefs.getShoppingListRef(listID);
+        listRef.removeValue();
+    }
+
 }
