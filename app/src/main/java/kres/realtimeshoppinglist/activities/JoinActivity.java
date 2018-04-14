@@ -3,11 +3,18 @@ package kres.realtimeshoppinglist.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.gson.Gson;
+
 import kres.realtimeshoppinglist.R;
+import kres.realtimeshoppinglist.firebase.shoppingList.ListExistsListener;
+import kres.realtimeshoppinglist.firebase.shoppingList.ShoppingListManager;
+import kres.realtimeshoppinglist.model.ShoppingList;
+import kres.realtimeshoppinglist.util.Constants;
 
 public class JoinActivity extends AppCompatActivity {
 
@@ -22,14 +29,30 @@ public class JoinActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String code = listCodeEditText.getText().toString();
+                final String code = listCodeEditText.getText().toString();
                 if (code.isEmpty()) {
                     return;
                 }
 
                 // TODO: Make some Firebase call to check list's existence
-                Intent intent = new Intent(JoinActivity.this, ListActivity.class);
-                startActivity(intent);
+                ShoppingListManager.getShoppingList(code, new ListExistsListener() {
+                    @Override
+                    public void onListFound(ShoppingList list) {
+                        String json = new Gson().toJson(list);
+
+                        Intent intent = new Intent(JoinActivity.this, ListActivity.class);
+                        intent.putExtra(Constants.SHOPPING_LIST_INTENT_KEY, json);
+
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onListNotFound() {
+                        Log.d("LIST_NOT_FOUND", "No list found with ID: " + code);
+                    }
+                });
+
+
             }
         });
     }
