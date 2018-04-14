@@ -7,7 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.gson.Gson;
+
 import kres.realtimeshoppinglist.R;
+import kres.realtimeshoppinglist.firebase.shoppingList.ShoppingListManager;
+import kres.realtimeshoppinglist.model.ShoppingList;
+import kres.realtimeshoppinglist.util.Constants;
 
 public class CreateActivity extends AppCompatActivity {
 
@@ -27,8 +32,11 @@ public class CreateActivity extends AppCompatActivity {
                     return;
                 }
 
-                // TODO: Create the list in Firebase
+                ShoppingList createdShoppingList = ShoppingListManager.createShoppingList(listName);
+                String json = new Gson().toJson(createdShoppingList);
+
                 Intent intent = new Intent(CreateActivity.this, ListActivity.class);
+                intent.putExtra(Constants.SHOPPING_LIST_INTENT_KEY, json);
                 startActivity(intent);
             }
         });
