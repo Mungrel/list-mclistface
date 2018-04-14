@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import kres.realtimeshoppinglist.R;
+import kres.realtimeshoppinglist.firebase.shoppingList.ShoppingListManager;
+import kres.realtimeshoppinglist.model.ShoppingList;
 
 public class CreateActivity extends AppCompatActivity {
 
@@ -28,6 +30,8 @@ public class CreateActivity extends AppCompatActivity {
                 }
 
                 // TODO: Create the list in Firebase
+                ShoppingList createdShoppingList = ShoppingListManager.createShoppingList(listName);
+
                 Intent intent = new Intent(CreateActivity.this, ListActivity.class);
                 startActivity(intent);
             }
