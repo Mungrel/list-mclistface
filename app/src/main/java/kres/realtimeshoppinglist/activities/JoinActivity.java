@@ -7,7 +7,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.gson.Gson;
+
 import kres.realtimeshoppinglist.R;
+import kres.realtimeshoppinglist.firebase.shoppingList.ListExistsListener;
+import kres.realtimeshoppinglist.firebase.shoppingList.ShoppingListManager;
+import kres.realtimeshoppinglist.model.ShoppingList;
+import kres.realtimeshoppinglist.util.Constants;
 
 public class JoinActivity extends AppCompatActivity {
 
@@ -28,8 +34,24 @@ public class JoinActivity extends AppCompatActivity {
                 }
 
                 // TODO: Make some Firebase call to check list's existence
-                Intent intent = new Intent(JoinActivity.this, ListActivity.class);
-                startActivity(intent);
+                ShoppingListManager.getShoppingList(code, new ListExistsListener() {
+                    @Override
+                    public void onListFound(ShoppingList list) {
+                        String json = new Gson().toJson(list);
+
+                        Intent intent = new Intent(JoinActivity.this, ListActivity.class);
+                        intent.putExtra(Constants.SHOPPING_LIST_INTENT_KEY, json);
+
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onListNotFound() {
+                        
+                    }
+                });
+
+
             }
         });
     }
