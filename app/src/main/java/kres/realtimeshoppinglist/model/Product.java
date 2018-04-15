@@ -7,7 +7,8 @@ public class Product {
     private int quantity;
     private boolean bought;
 
-    public Product(){}
+    public Product() {
+    }
 
     public Product(String name, int quantity) {
         this.name = name;

@@ -1,8 +1,8 @@
 package kres.realtimeshoppinglist.activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -34,7 +34,6 @@ public class JoinActivity extends AppCompatActivity {
                     return;
                 }
 
-                // TODO: Make some Firebase call to check list's existence
                 ShoppingListManager.getShoppingList(code, new ListExistsListener() {
                     @Override
                     public void onListFound(ShoppingList list) {
