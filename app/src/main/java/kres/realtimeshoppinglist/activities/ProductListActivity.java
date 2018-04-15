@@ -1,5 +1,6 @@
 package kres.realtimeshoppinglist.activities;
 
+import android.app.DialogFragment;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -17,7 +18,11 @@ import kres.realtimeshoppinglist.model.ShoppingList;
 import kres.realtimeshoppinglist.util.Constants;
 import kres.realtimeshoppinglist.util.ProductListAdapter;
 
-public class ProductListActivity extends AppCompatActivity {
+import kres.realtimeshoppinglist.dialog.NewProductDialog;
+import kres.realtimeshoppinglist.dialog.NewProductDialogListener;
+import kres.realtimeshoppinglist.model.Product;
+
+public class ProductListActivity extends AppCompatActivity implements NewProductDialogListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +44,18 @@ public class ProductListActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.d("PRODUCT_LIST_ACTIVITY", "FAB clicked");
+                DialogFragment fragment = new NewProductDialog();
+                fragment.show(getFragmentManager(), "New Product");
             }
         });
+    }
+
+    @Override
+    public void onProductAdded(Product product) {
+        Log.d("PRODUCT_ADDED", "" + product.getName());
+    }
+
+    @Override
+    public void onCancel() {
     }
 }
