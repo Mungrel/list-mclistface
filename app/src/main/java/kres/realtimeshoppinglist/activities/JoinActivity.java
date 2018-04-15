@@ -34,7 +34,6 @@ public class JoinActivity extends AppCompatActivity {
                     return;
                 }
 
-                // TODO: Make some Firebase call to check list's existence
                 ShoppingListManager.getShoppingList(code, new ListExistsListener() {
                     @Override
                     public void onListFound(ShoppingList list) {
