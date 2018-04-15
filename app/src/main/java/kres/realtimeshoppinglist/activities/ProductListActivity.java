@@ -14,6 +14,7 @@ import com.google.gson.Gson;
 import kres.realtimeshoppinglist.R;
 import kres.realtimeshoppinglist.firebase.FirebaseRefs;
 import kres.realtimeshoppinglist.firebase.productList.ProductListChangeListener;
+import kres.realtimeshoppinglist.firebase.productList.ProductListManager;
 import kres.realtimeshoppinglist.model.ShoppingList;
 import kres.realtimeshoppinglist.util.Constants;
 import kres.realtimeshoppinglist.util.ProductListAdapter;
@@ -23,6 +24,8 @@ import kres.realtimeshoppinglist.dialog.NewProductDialogListener;
 import kres.realtimeshoppinglist.model.Product;
 
 public class ProductListActivity extends AppCompatActivity implements NewProductDialogListener {
+
+    private String listID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +39,9 @@ public class ProductListActivity extends AppCompatActivity implements NewProduct
         String shoppingListJSON = getIntent().getStringExtra(Constants.SHOPPING_LIST_INTENT_KEY);
         ShoppingList shoppingList = new Gson().fromJson(shoppingListJSON, ShoppingList.class);
 
-        DatabaseReference listRef = FirebaseRefs.getShoppingListRef(shoppingList.getId());
+        listID = shoppingList.getId();
+
+        DatabaseReference listRef = FirebaseRefs.getShoppingListRef(listID);
         listRef.addChildEventListener(changeListener);
 
         FloatingActionButton fab = findViewById(R.id.product_list_fab);
@@ -53,6 +58,7 @@ public class ProductListActivity extends AppCompatActivity implements NewProduct
     @Override
     public void onProductAdded(Product product) {
         Log.d("PRODUCT_ADDED", "" + product.getName());
+        ProductListManager.addItem(listID, product);
     }
 
     @Override
