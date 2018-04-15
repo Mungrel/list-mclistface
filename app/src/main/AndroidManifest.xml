@@ -18,7 +18,7 @@
         </activity>
         <activity android:name=".activities.CreateActivity" />
         <activity android:name=".activities.JoinActivity" />
-        <activity android:name=".activities.ListActivity" />
+        <activity android:name=".activities.ProductListActivity" />
         <activity android:name=".ListSelectActivity"></activity>
     </application>
 
