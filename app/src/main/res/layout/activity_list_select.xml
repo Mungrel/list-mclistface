@@ -11,11 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout android:id="@+id/list_select_layout"
+        <LinearLayout
+            android:id="@+id/list_select_layout"
             android:layout_width="fill_parent"
             android:orientation="vertical"
-            android:layout_height="wrap_content" >
-        </LinearLayout>
+            android:layout_height="wrap_content"></LinearLayout>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/list_select_fab"
