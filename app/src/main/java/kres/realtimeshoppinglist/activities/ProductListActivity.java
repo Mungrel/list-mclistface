@@ -41,8 +41,8 @@ public class ProductListActivity extends AppCompatActivity implements NewProduct
 
         listID = shoppingList.getId();
 
-        DatabaseReference listRef = FirebaseRefs.getShoppingListRef(listID);
-        listRef.addChildEventListener(changeListener);
+        DatabaseReference listRef = FirebaseRefs.getShoppingListProductsRef(listID);
+        listRef.addChildEventListener(changeListener); 
 
         FloatingActionButton fab = findViewById(R.id.product_list_fab);
         fab.setOnClickListener(new View.OnClickListener() {
