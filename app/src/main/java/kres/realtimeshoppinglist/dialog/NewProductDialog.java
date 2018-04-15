@@ -28,6 +28,8 @@ public class NewProductDialog extends DialogFragment {
 
         final NumberPicker numberPicker = dialogView.findViewById(R.id.product_quantity_number_picker);
         numberPicker.setDisplayedValues(getNumberPickerValues(50));
+        numberPicker.setMaxValue(50);
+        numberPicker.setMinValue(1);
 
         final EditText editText = dialogView.findViewById(R.id.product_name_edit_text);
 
@@ -74,7 +76,7 @@ public class NewProductDialog extends DialogFragment {
         String[] vals = new String[max+1];
 
         vals[0] = "Quantity";
-        for (int i = 1; i < max; i++) {
+        for (int i = 1; i <= max; i++) {
             vals[i] = Integer.toString(i);
         }
 
