@@ -8,8 +8,12 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.NumberPicker;
 
 import kres.realtimeshoppinglist.R;
+import kres.realtimeshoppinglist.model.Product;
 
 public class NewProductDialog extends DialogFragment {
 
@@ -20,12 +24,22 @@ public class NewProductDialog extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
 
-        builder.setView(inflater.inflate(R.layout.dialog_new_product, null));
+        View dialogView = inflater.inflate(R.layout.dialog_new_product, null);
+        final NumberPicker numberPicker = dialogView.findViewById(R.id.product_quantity_number_picker);
+        final EditText editText = dialogView.findViewById(R.id.product_name_edit_text);
+
+        builder.setView(dialogView);
 
         builder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Log.d("NEW_PRODUCT_DIALOG", "Positive button clicked");
+
+                int quantity = numberPicker.getValue();
+                String productName = editText.getText().toString();
+                Product product = new Product(productName, quantity);
+
+                listener.onProductAdded(product);
             }
         });
 
@@ -33,6 +47,7 @@ public class NewProductDialog extends DialogFragment {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Log.d("NEW_PRODUCT_DIALOG", "Negative button clicked");
+                listener.onCancel();
             }
         });
 
