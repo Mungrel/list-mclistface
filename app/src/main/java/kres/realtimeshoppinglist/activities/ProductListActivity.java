@@ -1,7 +1,10 @@
 package kres.realtimeshoppinglist.activities;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import com.google.firebase.database.DatabaseReference;
@@ -30,5 +33,13 @@ public class ProductListActivity extends AppCompatActivity {
 
         DatabaseReference listRef = FirebaseRefs.getShoppingListRef(shoppingList.getId());
         listRef.addChildEventListener(changeListener);
+
+        FloatingActionButton fab = findViewById(R.id.product_list_fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("PRODUCT_LIST_ACTIVITY", "FAB clicked");
+            }
+        });
     }
 }
