@@ -8,13 +8,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
 import kres.realtimeshoppinglist.firebase.FirebaseRefs;
+import kres.realtimeshoppinglist.firebase.ListID;
 import kres.realtimeshoppinglist.model.ShoppingList;
 
 public class ShoppingListManager {
 
     public static ShoppingList createShoppingList(String listName) {
-        DatabaseReference newListRef = FirebaseRefs.getShoppingListRootRef().push();
-        String listID = newListRef.getKey();
+        String listID = ListID.generate();
+        DatabaseReference newListRef = FirebaseRefs.getShoppingListRef(listID);
 
         ShoppingList shoppingList = new ShoppingList(listID, listName);
         newListRef.setValue(shoppingList);
