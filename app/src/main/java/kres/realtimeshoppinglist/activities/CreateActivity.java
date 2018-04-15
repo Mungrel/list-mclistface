@@ -35,7 +35,7 @@ public class CreateActivity extends AppCompatActivity {
                 ShoppingList createdShoppingList = ShoppingListManager.createShoppingList(listName);
                 String json = new Gson().toJson(createdShoppingList);
 
-                Intent intent = new Intent(CreateActivity.this, ListActivity.class);
+                Intent intent = new Intent(CreateActivity.this, ProductListActivity.class);
                 intent.putExtra(Constants.SHOPPING_LIST_INTENT_KEY, json);
                 startActivity(intent);
             }

@@ -40,7 +40,7 @@ public class JoinActivity extends AppCompatActivity {
                     public void onListFound(ShoppingList list) {
                         String json = new Gson().toJson(list);
 
-                        Intent intent = new Intent(JoinActivity.this, ListActivity.class);
+                        Intent intent = new Intent(JoinActivity.this, ProductListActivity.class);
                         intent.putExtra(Constants.SHOPPING_LIST_INTENT_KEY, json);
 
                         startActivity(intent);
