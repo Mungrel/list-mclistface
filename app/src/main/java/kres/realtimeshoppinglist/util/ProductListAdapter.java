@@ -43,7 +43,7 @@ public class ProductListAdapter {
         LinearLayout listItem = (LinearLayout) inflater.inflate(R.layout.shopping_list_item_layout, null, false);
         CheckBox itemCheckBox = listItem.findViewById(R.id.list_item_check_box);
 
-        itemCheckBox.setText(String.format("%dx %s", item.getQuantity(), item.getName()));
+        itemCheckBox.setText(item.getName());
         itemCheckBox.setChecked(item.isBought());
 
         itemCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -66,7 +66,7 @@ public class ProductListAdapter {
         LinearLayout listItem = (LinearLayout) productListLayout.getChildAt(index);
         CheckBox itemCheckBox = listItem.findViewById(R.id.list_item_check_box);
 
-        itemCheckBox.setText(String.format("%dx %s", newItem.getQuantity(), newItem.getName()));
+        itemCheckBox.setText(newItem.getName());
         itemCheckBox.setChecked(newItem.isBought());
     }
 }
