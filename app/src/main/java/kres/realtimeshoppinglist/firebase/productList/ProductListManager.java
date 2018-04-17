@@ -8,7 +8,7 @@ import kres.realtimeshoppinglist.model.Product;
 public class ProductListManager {
 
     public static void addItem(String listID, Product product) {
-        DatabaseReference ref = FirebaseRefs.getShoppingListRef(listID);
+        DatabaseReference ref = FirebaseRefs.getShoppingListProductsRef(listID);
         DatabaseReference newProductRef = ref.push();
         product.setID(newProductRef.getKey());
         newProductRef.setValue(product);
