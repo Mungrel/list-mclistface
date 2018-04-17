@@ -35,4 +35,8 @@ public class Product {
     public boolean isBought() {
         return bought;
     }
+
+    public void setBought(boolean bought) {
+        this.bought = bought;
+    }
 }
