@@ -4,15 +4,13 @@ public class Product {
 
     private String ID;
     private String name;
-    private int quantity;
     private boolean bought;
 
     public Product() {
     }
 
-    public Product(String name, int quantity) {
+    public Product(String name) {
         this.name = name;
-        this.quantity = quantity;
         this.bought = false;
     }
 
@@ -26,10 +24,6 @@ public class Product {
 
     public String getName() {
         return name;
-    }
-
-    public int getQuantity() {
-        return quantity;
     }
 
     public boolean isBought() {
