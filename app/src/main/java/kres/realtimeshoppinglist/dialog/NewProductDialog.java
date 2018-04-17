@@ -26,11 +26,6 @@ public class NewProductDialog extends DialogFragment {
 
         View dialogView = inflater.inflate(R.layout.dialog_new_product, null);
 
-        final NumberPicker numberPicker = dialogView.findViewById(R.id.product_quantity_number_picker);
-        numberPicker.setDisplayedValues(getNumberPickerValues(50));
-        numberPicker.setMaxValue(50);
-        numberPicker.setMinValue(1);
-
         final EditText editText = dialogView.findViewById(R.id.product_name_edit_text);
 
         builder.setView(dialogView);
@@ -69,16 +64,5 @@ public class NewProductDialog extends DialogFragment {
             // The activity doesn't implement the interface, throw exception
             throw new ClassCastException(activity.toString() + " must implement NewProductDialogListener");
         }
-    }
-
-    private String[] getNumberPickerValues(int max) {
-        String[] vals = new String[max+1];
-
-        vals[0] = "Quantity";
-        for (int i = 1; i <= max; i++) {
-            vals[i] = Integer.toString(i);
-        }
-
-        return vals;
     }
 }
