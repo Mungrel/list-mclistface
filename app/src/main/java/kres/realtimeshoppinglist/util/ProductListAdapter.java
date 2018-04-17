@@ -3,11 +3,13 @@ package kres.realtimeshoppinglist.util;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 
 import kres.realtimeshoppinglist.R;
+import kres.realtimeshoppinglist.dialog.RemoveProductDialog;
 import kres.realtimeshoppinglist.firebase.productList.ProductListManager;
 import kres.realtimeshoppinglist.model.Product;
 
@@ -15,12 +17,14 @@ public class ProductListAdapter {
 
     private LinearLayout productListLayout;
     private LayoutInflater inflater;
+    private Context context;
 
     private String listID;
 
     public ProductListAdapter(LinearLayout productListLayout, Context context, String listID) {
         this.productListLayout = productListLayout;
         this.inflater = LayoutInflater.from(context);
+        this.context = context;
         this.listID = listID;
     }
 
@@ -51,6 +55,15 @@ public class ProductListAdapter {
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 item.setBought(isChecked);
                 ProductListManager.editItem(listID, item);
+            }
+        });
+
+        itemCheckBox.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                RemoveProductDialog dialog = new RemoveProductDialog(context, listID, item.getID());
+                dialog.show();
+                return false;
             }
         });
 
