@@ -32,14 +32,14 @@ public class ProductListActivity extends AppCompatActivity implements NewProduct
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_list);
 
-        LinearLayout productListLayout = findViewById(R.id.product_list_layout);
-        ProductListAdapter adapter = new ProductListAdapter(productListLayout, ProductListActivity.this);
-        ProductListChangeListener changeListener = new ProductListChangeListener(adapter);
-
         String shoppingListJSON = getIntent().getStringExtra(Constants.SHOPPING_LIST_INTENT_KEY);
         ShoppingList shoppingList = new Gson().fromJson(shoppingListJSON, ShoppingList.class);
 
         listID = shoppingList.getId();
+
+        LinearLayout productListLayout = findViewById(R.id.product_list_layout);
+        ProductListAdapter adapter = new ProductListAdapter(productListLayout, ProductListActivity.this, listID);
+        ProductListChangeListener changeListener = new ProductListChangeListener(adapter);
 
         DatabaseReference listRef = FirebaseRefs.getShoppingListProductsRef(listID);
         listRef.addChildEventListener(changeListener); 
