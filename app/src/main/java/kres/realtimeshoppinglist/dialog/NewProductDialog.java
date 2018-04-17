@@ -40,7 +40,10 @@ public class NewProductDialog extends DialogFragment {
             public void onClick(DialogInterface dialogInterface, int i) {
                 Log.d("NEW_PRODUCT_DIALOG", "Positive button clicked");
 
-                int quantity = numberPicker.getValue();
+                int quantity = numberPicker.getValue() - 1;
+                if (quantity <= 0) {
+                    return;
+                }
                 String productName = editText.getText().toString();
                 Product product = new Product(productName, quantity);
 
