@@ -1,2 +1,4 @@
-# real-time-shopping-list-android
+# real-time-shopping-list-android 
+![](https://travis-ci.org/Mungrel/real-time-shopping-list-android.svg?branch=master)
+
 Real time shopping list using Firebase
