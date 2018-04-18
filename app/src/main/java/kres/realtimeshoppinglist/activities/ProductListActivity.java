@@ -17,7 +17,7 @@ import kres.realtimeshoppinglist.firebase.productList.ProductListChangeListener;
 import kres.realtimeshoppinglist.firebase.productList.ProductListManager;
 import kres.realtimeshoppinglist.model.ShoppingList;
 import kres.realtimeshoppinglist.util.Constants;
-import kres.realtimeshoppinglist.util.ProductListAdapter;
+import kres.realtimeshoppinglist.firebase.productList.ProductListAdapter;
 
 import kres.realtimeshoppinglist.dialog.NewProductDialog;
 import kres.realtimeshoppinglist.dialog.NewProductDialogListener;

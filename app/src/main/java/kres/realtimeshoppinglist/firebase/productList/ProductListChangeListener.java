@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import kres.realtimeshoppinglist.model.Product;
-import kres.realtimeshoppinglist.util.ProductListAdapter;
 
 public class ProductListChangeListener implements ChildEventListener {
 

@@ -1,4 +1,4 @@
-package kres.realtimeshoppinglist.util;
+package kres.realtimeshoppinglist.firebase.productList;
 
 import android.content.Context;
 import android.util.Log;
