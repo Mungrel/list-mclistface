@@ -23,11 +23,6 @@ public class ShoppingListManager {
         return shoppingList;
     }
 
-    public static void deleteShoppingList(String listID) {
-        DatabaseReference listRef = FirebaseRefs.getShoppingListRef(listID);
-        listRef.removeValue();
-    }
-
     public static void editShoppingListName(String listID, String newListName) {
         DatabaseReference listRef = FirebaseRefs.getShoppingListRef(listID);
         DatabaseReference listNameRef = listRef.child("name");
