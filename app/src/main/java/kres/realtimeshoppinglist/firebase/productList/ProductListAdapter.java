@@ -10,7 +10,6 @@ import android.widget.LinearLayout;
 
 import kres.realtimeshoppinglist.R;
 import kres.realtimeshoppinglist.dialog.RemoveProductDialog;
-import kres.realtimeshoppinglist.firebase.productList.ProductListManager;
 import kres.realtimeshoppinglist.model.Product;
 
 public class ProductListAdapter {
@@ -44,7 +43,7 @@ public class ProductListAdapter {
     }
 
     public void insertItem(int index, final Product item) {
-        LinearLayout listItem = (LinearLayout) inflater.inflate(R.layout.shopping_list_item_layout, null, false);
+        LinearLayout listItem = (LinearLayout) inflater.inflate(R.layout.product_list_item_layout, null, false);
         CheckBox itemCheckBox = listItem.findViewById(R.id.list_item_check_box);
 
         itemCheckBox.setText(item.getName());
