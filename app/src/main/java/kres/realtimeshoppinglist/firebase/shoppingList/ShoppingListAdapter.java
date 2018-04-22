@@ -44,4 +44,11 @@ public class ShoppingListAdapter {
             listLayout.removeViewAt(index);
         }
     }
+
+    public void updateName(int index, String newName) {
+        RelativeLayout layout = (RelativeLayout) listLayout.getChildAt(index);
+
+        TextView listName = layout.findViewById(R.id.list_select_list_name);
+        listName.setText(newName);
+    }
 }
