@@ -13,7 +13,7 @@
             android:id="@+id/product_list_layout"
             android:layout_width="fill_parent"
             android:orientation="vertical"
-            android:layout_height="wrap_content"></LinearLayout>
+            android:layout_height="wrap_content" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/product_list_fab"
