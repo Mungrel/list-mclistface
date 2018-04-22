@@ -1,9 +1,11 @@
 package kres.realtimeshoppinglist.activities;
 
 import android.content.SharedPreferences;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import java.util.Set;
@@ -42,5 +44,13 @@ public class ListSelectActivity extends AppCompatActivity {
                 }
             });
         }
+
+        FloatingActionButton fab = findViewById(R.id.list_select_list_fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // fab clicked
+            }
+        });
     }
 }
