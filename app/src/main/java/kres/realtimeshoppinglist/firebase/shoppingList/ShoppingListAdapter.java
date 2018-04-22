@@ -38,4 +38,10 @@ public class ShoppingListAdapter {
 
         listLayout.addView(newItemLayout);
     }
+
+    public void deleteItem(int index) {
+        if (index < listLayout.getChildCount()) {
+            listLayout.removeViewAt(index);
+        }
+    }
 }
