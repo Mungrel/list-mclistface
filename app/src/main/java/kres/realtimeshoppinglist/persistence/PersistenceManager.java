@@ -36,6 +36,16 @@ public class PersistenceManager {
         editor.apply();
     }
 
+    public void removeKnownID(String listID) {
+        Set<String> knownIDs = retrieveKnownIDs();
+        knownIDs.remove(listID);
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putStringSet(KNOWN_LISTS_SHARED_PREFERENCES_KEY, knownIDs);
+
+        editor.apply();
+    }
+
     public Set<String> retrieveKnownIDs() {
         return sharedPreferences.getStringSet(KNOWN_LISTS_SHARED_PREFERENCES_KEY, new HashSet<String>());
     }
