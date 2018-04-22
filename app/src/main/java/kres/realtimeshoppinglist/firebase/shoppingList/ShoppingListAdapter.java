@@ -21,7 +21,7 @@ public class ShoppingListAdapter {
         this.inflater = LayoutInflater.from(context);
     }
 
-    public void appendItem(ShoppingList shoppingList) {
+    public void appendItem(final ShoppingList shoppingList) {
         RelativeLayout newItemLayout = (RelativeLayout) inflater.inflate(R.layout.shopping_list_item_layout, null, false);
 
         TextView listName = newItemLayout.findViewById(R.id.list_select_list_name);
@@ -33,6 +33,7 @@ public class ShoppingListAdapter {
             @Override
             public void onClick(View v) {
                 // Delete button clicked
+                ShoppingListManager.deleteList(shoppingList.getId());
             }
         });
 
