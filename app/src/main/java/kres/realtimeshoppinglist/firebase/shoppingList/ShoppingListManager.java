@@ -48,4 +48,10 @@ public class ShoppingListManager {
             }
         });
     }
+
+    public static void deleteList(String listID) {
+        DatabaseReference listRef = FirebaseRefs.getShoppingListRef(listID);
+
+        listRef.setValue(null);
+    }
 }
