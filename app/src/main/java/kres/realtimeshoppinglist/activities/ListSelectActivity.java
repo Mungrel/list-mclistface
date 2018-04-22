@@ -23,6 +23,6 @@ public class ListSelectActivity extends AppCompatActivity {
         ShoppingListAdapter adapter = new ShoppingListAdapter(listLayout, ListSelectActivity.this);
 
         PersistenceManager manager = PersistenceManager.getInstance(ListSelectActivity.this);
-        Set<String> knownIDs = manager.retrieveKnownIDs()
+        Set<String> knownIDs = manager.retrieveKnownIDs();
     }
 }
