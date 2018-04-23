@@ -14,13 +14,17 @@ import java.util.Set;
 import kres.realtimeshoppinglist.R;
 import kres.realtimeshoppinglist.dialog.NewListDialog;
 import kres.realtimeshoppinglist.dialog.NewProductDialog;
+import kres.realtimeshoppinglist.dialog.ShoppingListUtil;
 import kres.realtimeshoppinglist.firebase.shoppingList.ListExistsListener;
 import kres.realtimeshoppinglist.firebase.shoppingList.ShoppingListAdapter;
 import kres.realtimeshoppinglist.firebase.shoppingList.ShoppingListManager;
 import kres.realtimeshoppinglist.model.ShoppingList;
 import kres.realtimeshoppinglist.persistence.PersistenceManager;
 
-public class ListSelectActivity extends AppCompatActivity {
+public class ListSelectActivity extends AppCompatActivity implements ShoppingListUtil {
+
+    private ShoppingListAdapter shoppingListAdapter;
+    private PersistenceManager persistenceManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,21 +33,21 @@ public class ListSelectActivity extends AppCompatActivity {
 
         LinearLayout listLayout = findViewById(R.id.list_select_list_layout);
 
-        final ShoppingListAdapter adapter = new ShoppingListAdapter(listLayout, ListSelectActivity.this);
+        shoppingListAdapter = new ShoppingListAdapter(listLayout, ListSelectActivity.this);
+        persistenceManager = PersistenceManager.getInstance(ListSelectActivity.this);
 
-        final PersistenceManager manager = PersistenceManager.getInstance(ListSelectActivity.this);
-        Set<String> knownIDs = manager.retrieveKnownIDs();
+        Set<String> knownIDs = persistenceManager.retrieveKnownIDs();
 
         for (final String id : knownIDs) {
             ShoppingListManager.getShoppingList(id, new ListExistsListener() {
                 @Override
                 public void onListFound(ShoppingList list) {
-                    adapter.appendItem(list);
+                    shoppingListAdapter.appendItem(list);
                 }
 
                 @Override
                 public void onListNotFound() {
-                    manager.removeKnownID(id);
+                    persistenceManager.removeKnownID(id);
                 }
             });
         }
@@ -58,5 +62,15 @@ public class ListSelectActivity extends AppCompatActivity {
                 fragment.show(getFragmentManager(), "New List");
             }
         });
+    }
+
+    @Override
+    public ShoppingListAdapter getAdapter() {
+        return shoppingListAdapter;
+    }
+
+    @Override
+    public PersistenceManager getPersistenceManger() {
+        return persistenceManager;
     }
 }
