@@ -8,4 +8,6 @@
     <string name="create">create</string>
     <string name="join">join</string>
     <string name="quantity_product_name">Quantity - Product Name</string>
+    <string name="list_name">List Name</string>
+    <string name="join_code">Join Code</string>
 </resources>
