@@ -1,5 +1,6 @@
 package kres.realtimeshoppinglist.activities;
 
+import android.app.DialogFragment;
 import android.content.SharedPreferences;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,8 @@ import android.widget.LinearLayout;
 import java.util.Set;
 
 import kres.realtimeshoppinglist.R;
+import kres.realtimeshoppinglist.dialog.NewListDialog;
+import kres.realtimeshoppinglist.dialog.NewProductDialog;
 import kres.realtimeshoppinglist.firebase.shoppingList.ListExistsListener;
 import kres.realtimeshoppinglist.firebase.shoppingList.ShoppingListAdapter;
 import kres.realtimeshoppinglist.firebase.shoppingList.ShoppingListManager;
@@ -50,6 +53,9 @@ public class ListSelectActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // fab clicked
+                Log.d("PRODUCT_LIST_ACTIVITY", "FAB clicked");
+                DialogFragment fragment = new NewListDialog();
+                fragment.show(getFragmentManager(), "New List");
             }
         });
     }
