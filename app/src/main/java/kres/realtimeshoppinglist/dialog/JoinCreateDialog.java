@@ -18,6 +18,8 @@ import kres.realtimeshoppinglist.model.ShoppingList;
 
 public class JoinCreateDialog extends DialogFragment {
 
+    private static final String TAB_CREATE = "TAB_CREATE";
+    private static final String TAB_JOIN = "TAB_JOIN";
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -30,15 +32,15 @@ public class JoinCreateDialog extends DialogFragment {
         host.setup();
 
         //Tab 1
-        TabHost.TabSpec spec = host.newTabSpec("Tab One");
+        TabHost.TabSpec spec = host.newTabSpec(TAB_CREATE);
         spec.setContent(R.id.tab_create_linear_layout);
-        spec.setIndicator("Tab One");
+        spec.setIndicator("Create");
         host.addTab(spec);
 
         //Tab 2
-        spec = host.newTabSpec("Tab Two");
+        spec = host.newTabSpec(TAB_JOIN);
         spec.setContent(R.id.tab_join_linear_layout);
-        spec.setIndicator("Tab Two");
+        spec.setIndicator("Join");
         host.addTab(spec);
 
         final EditText joinCodeEditText = dialogView.findViewById(R.id.tab_join_join_code_edit_text);
