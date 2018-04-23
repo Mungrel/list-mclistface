@@ -23,12 +23,6 @@ public class ShoppingListManager {
         return shoppingList;
     }
 
-    public static void editShoppingListName(String listID, String newListName) {
-        DatabaseReference listRef = FirebaseRefs.getShoppingListRef(listID);
-        DatabaseReference listNameRef = listRef.child("name");
-        listNameRef.setValue(newListName);
-    }
-
     public static void getShoppingList(String listID, final ListExistsListener listExistsListener) {
         DatabaseReference listRef = FirebaseRefs.getShoppingListRef(listID);
         listRef.addListenerForSingleValueEvent(new ValueEventListener() {
