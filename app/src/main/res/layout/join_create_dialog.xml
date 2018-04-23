@@ -15,42 +15,41 @@
             <TabWidget
                 android:id="@android:id/tabs"
                 android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <FrameLayout
-                    android:id="@android:id/tabcontent"
+                <LinearLayout
+                    android:id="@+id/tab_create_linear_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                    <LinearLayout
-                        android:id="@+id/tab_create_linear_layout"
+                    <EditText
+                        android:id="@+id/tab_create_list_name_edit_text"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
+                        android:layout_height="wrap_content"
+                        android:hint="@string/list_name"
+                        android:singleLine="true" />
+                </LinearLayout>
 
-                        <EditText
-                            android:id="@+id/tab_create_list_name_edit_text"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/list_name"
-                            android:singleLine="true" />
-                    </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/tab_join_linear_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                    <LinearLayout
-                        android:id="@+id/tab_join_linear_layout"
+                    <EditText
+                        android:id="@+id/tab_join_join_code_edit_text"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <EditText
-                            android:id="@+id/tab_join_join_code_edit_text"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/join_code"
-                            android:singleLine="true" />
-                    </LinearLayout>
-                </FrameLayout>
-            </TabWidget>
+                        android:layout_height="wrap_content"
+                        android:hint="@string/join_code"
+                        android:singleLine="true" />
+                </LinearLayout>
+            </FrameLayout>
         </LinearLayout>
     </TabHost>
 </LinearLayout>
