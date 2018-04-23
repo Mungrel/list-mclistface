@@ -4,6 +4,7 @@
     android:layout_height="match_parent">
 
     <TabHost
+        android:id="@+id/tab_host"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

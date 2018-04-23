@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TabHost;
 
 import kres.realtimeshoppinglist.R;
 import kres.realtimeshoppinglist.firebase.shoppingList.ShoppingListManager;
@@ -25,6 +26,21 @@ public class JoinCreateDialog extends DialogFragment {
 
         View dialogView = inflater.inflate(R.layout.join_create_dialog, null);
 
+        TabHost host = dialogView.findViewById(R.id.tab_host);
+        host.setup();
+
+        //Tab 1
+        TabHost.TabSpec spec = host.newTabSpec("Tab One");
+        spec.setContent(R.id.tab_create_linear_layout);
+        spec.setIndicator("Tab One");
+        host.addTab(spec);
+
+        //Tab 2
+        spec = host.newTabSpec("Tab Two");
+        spec.setContent(R.id.tab_join_linear_layout);
+        spec.setIndicator("Tab Two");
+        host.addTab(spec);
+
         final EditText joinCodeEditText = dialogView.findViewById(R.id.tab_join_join_code_edit_text);
         final EditText listNameEditText = dialogView.findViewById(R.id.tab_create_list_name_edit_text);
 
@@ -35,10 +51,6 @@ public class JoinCreateDialog extends DialogFragment {
             public void onClick(DialogInterface dialogInterface, int i) {
                 Log.d("NEW_LIST_DIALOG", "Positive button clicked");
 
-                String listName = editText.getText().toString();
-                ShoppingList newShoppingList = ShoppingListManager.createShoppingList(listName);
-                utils.getAdapter().appendItem(newShoppingList);
-                utils.getPersistenceManger().persistKnownID(newShoppingList.getId());
             }
         });
 
@@ -50,18 +62,5 @@ public class JoinCreateDialog extends DialogFragment {
         });
 
         return builder.create();
-    }
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        // Verify that the host activity implements the callback interface
-        try {
-            // Instantiate the NoticeDialogListener so we can send events to the host
-            utils = (ShoppingListUtil) activity;
-        } catch (ClassCastException e) {
-            // The activity doesn't implement the interface, throw exception
-            throw new ClassCastException(activity.toString() + " must implement ShoppingListUtil");
-        }
     }
 }
