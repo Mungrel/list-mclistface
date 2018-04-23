@@ -13,12 +13,12 @@
             android:layout_height="match_parent">
 
             <TabWidget
-                android:id="@+id/tabs"
+                android:id="@android:id/tabs"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <FrameLayout
-                    android:id="@+id/tab_content"
+                    android:id="@android:id/tabcontent"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
