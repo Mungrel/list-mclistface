@@ -52,6 +52,7 @@ public class PersistenceManager {
     }
 
     public Set<String> retrieveKnownIDs() {
-        return sharedPreferences.getStringSet(KNOWN_LISTS_SHARED_PREFERENCES_KEY, new HashSet<String>());
+        // Turns out you need to copy the set you get back into a new HashSet, otherwise shit breaks
+        return new HashSet<>(sharedPreferences.getStringSet(KNOWN_LISTS_SHARED_PREFERENCES_KEY, new HashSet<String>()));
     }
 }
