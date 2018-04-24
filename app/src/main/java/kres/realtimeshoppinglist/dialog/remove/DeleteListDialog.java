@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 
 import kres.realtimeshoppinglist.firebase.shoppingList.ShoppingListAdapter;
 import kres.realtimeshoppinglist.firebase.shoppingList.ShoppingListManager;
+import kres.realtimeshoppinglist.persistence.PersistenceManager;
 
 public class DeleteListDialog {
 
@@ -36,6 +37,7 @@ public class DeleteListDialog {
             public void onClick(DialogInterface dialogInterface, int i) {
                 ShoppingListManager.deleteList(listID);
                 adapter.deleteItem(listID);
+                PersistenceManager.getInstance(context).removeKnownID(listID);
             }
         });
 
