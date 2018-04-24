@@ -3,13 +3,11 @@ package kres.realtimeshoppinglist.firebase.productList;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 
 import kres.realtimeshoppinglist.R;
-import kres.realtimeshoppinglist.dialog.removeProduct.RemoveProductDialog;
 import kres.realtimeshoppinglist.model.Product;
 
 public class ProductListAdapter {
