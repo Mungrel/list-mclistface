@@ -9,7 +9,7 @@ import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 
 import kres.realtimeshoppinglist.R;
-import kres.realtimeshoppinglist.dialog.RemoveProductDialog;
+import kres.realtimeshoppinglist.dialog.removeProduct.RemoveProductDialog;
 import kres.realtimeshoppinglist.model.Product;
 
 public class ProductListAdapter {

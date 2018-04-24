@@ -1,4 +1,4 @@
-package kres.realtimeshoppinglist.dialog;
+package kres.realtimeshoppinglist.dialog.removeProduct;
 
 import android.app.AlertDialog;
 import android.content.Context;
