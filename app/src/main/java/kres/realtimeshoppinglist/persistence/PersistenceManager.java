@@ -36,6 +36,7 @@ public class PersistenceManager {
         editor.putStringSet(KNOWN_LISTS_SHARED_PREFERENCES_KEY, knownIDs);
 
         editor.apply();
+        editor.commit();
     }
 
     public void removeKnownID(String listID) {
@@ -47,6 +48,7 @@ public class PersistenceManager {
         editor.putStringSet(KNOWN_LISTS_SHARED_PREFERENCES_KEY, knownIDs);
 
         editor.apply();
+        editor.commit();
     }
 
     public Set<String> retrieveKnownIDs() {

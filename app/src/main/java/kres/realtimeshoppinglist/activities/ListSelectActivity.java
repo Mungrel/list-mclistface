@@ -37,6 +37,7 @@ public class ListSelectActivity extends AppCompatActivity implements ShoppingLis
         Set<String> knownIDs = persistenceManager.retrieveKnownIDs();
 
         for (final String id : knownIDs) {
+            Log.d("PERSISTENCE_MANAGER", "Found ID: " + id);
             ShoppingListManager.getShoppingList(id, new ListExistsListener() {
                 @Override
                 public void onListFound(ShoppingList list) {
