@@ -12,8 +12,10 @@
         <LinearLayout
             android:id="@+id/product_list_layout"
             android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_height="wrap_content" />
+            android:showDividers="middle"
+            android:divider="@drawable/list_divider" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/product_list_fab"
