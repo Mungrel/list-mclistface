@@ -69,6 +69,7 @@ public class ShoppingListAdapter {
         int index = listIDs.indexOf(listID);
         if (index != -1 && index < listLayout.getChildCount()) {
             listLayout.removeViewAt(index);
+            listIDs.remove(index);
         }
     }
 

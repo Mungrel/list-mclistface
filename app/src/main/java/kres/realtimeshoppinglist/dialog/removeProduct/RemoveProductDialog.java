@@ -37,7 +37,7 @@ public class RemoveProductDialog {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 ProductListManager.removeItem(listID, productID);
-                adapter.deleteItem();
+                adapter.deleteItem(listID);
             }
         });
 
