@@ -79,7 +79,7 @@ public class ProductListAdapter {
             @Override
             public void onClick(View v) {
                 DeleteProductDialog dialog = new DeleteProductDialog(context, listID, item.getID(), that);
-                ProductListManager.removeItem(listID, item.getID());
+                dialog.show();
             }
         });
 
