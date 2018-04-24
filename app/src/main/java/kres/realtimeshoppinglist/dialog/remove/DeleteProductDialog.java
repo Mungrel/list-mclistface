@@ -30,10 +30,10 @@ public class DeleteProductDialog {
     private AlertDialog build() {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
-        builder.setTitle("Remove Product");
-        builder.setMessage("Remove this product?");
+        builder.setTitle("Delete Product");
+        builder.setMessage("Delete this product for everyone?");
 
-        builder.setPositiveButton("Remove", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 ProductListManager.removeItem(listID, productID);
