@@ -50,9 +50,9 @@ public class ProductListChangeListener implements ChildEventListener {
         Log.d("LIST_CHANGE", "Child Added");
 
         int removalIndex = keys.indexOf(dataSnapshot.getKey());
-        keys.remove(removalIndex);
+        String id = keys.remove(removalIndex);
 
-        productListAdapter.removeItem(removalIndex);
+        productListAdapter.removeItem(id);
     }
 
     @Override
