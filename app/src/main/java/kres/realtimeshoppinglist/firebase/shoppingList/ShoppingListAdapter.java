@@ -16,6 +16,7 @@ import java.util.List;
 
 import kres.realtimeshoppinglist.R;
 import kres.realtimeshoppinglist.activities.ProductListActivity;
+import kres.realtimeshoppinglist.dialog.remove.DeleteListDialog;
 import kres.realtimeshoppinglist.model.ShoppingList;
 import kres.realtimeshoppinglist.util.Constants;
 
@@ -43,12 +44,14 @@ public class ShoppingListAdapter {
 
         listName.setText(shoppingList.getName());
 
+        final ShoppingListAdapter that = this;
+
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Delete button clicked
-                ShoppingListManager.deleteList(shoppingList.getId());
-                deleteItem(shoppingList.getId());
+                DeleteListDialog dialog = new DeleteListDialog(context, shoppingList.getId(), that);
+                dialog.show();
             }
         });
 
