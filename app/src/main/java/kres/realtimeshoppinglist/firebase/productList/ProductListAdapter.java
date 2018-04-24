@@ -36,7 +36,7 @@ public class ProductListAdapter {
     }
 
     public void removeItem(String productID) {
-        int index = productIDs.indexOf(listID);
+        int index = productIDs.indexOf(productID);
         if (index != -1 && index < productListLayout.getChildCount()) {
             productListLayout.removeViewAt(index);
             productIDs.remove(index);
