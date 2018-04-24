@@ -4,6 +4,7 @@ import android.app.DialogFragment;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -34,6 +35,10 @@ public class ProductListActivity extends AppCompatActivity implements NewProduct
 
         String shoppingListJSON = getIntent().getStringExtra(Constants.SHOPPING_LIST_INTENT_KEY);
         ShoppingList shoppingList = new Gson().fromJson(shoppingListJSON, ShoppingList.class);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_actionbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("My title");
 
         listID = shoppingList.getId();
 
