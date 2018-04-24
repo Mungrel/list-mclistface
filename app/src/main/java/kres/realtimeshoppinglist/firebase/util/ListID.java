@@ -1,4 +1,4 @@
-package kres.realtimeshoppinglist.firebase;
+package kres.realtimeshoppinglist.firebase.util;
 
 import java.math.BigInteger;
 import java.security.SecureRandom;

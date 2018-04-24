@@ -1,4 +1,4 @@
-package kres.realtimeshoppinglist.dialog;
+package kres.realtimeshoppinglist.dialog.joinCreate;
 
 import kres.realtimeshoppinglist.firebase.shoppingList.ShoppingListAdapter;
 import kres.realtimeshoppinglist.persistence.PersistenceManager;

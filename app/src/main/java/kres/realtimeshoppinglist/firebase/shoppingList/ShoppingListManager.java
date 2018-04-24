@@ -7,8 +7,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
-import kres.realtimeshoppinglist.firebase.FirebaseRefs;
-import kres.realtimeshoppinglist.firebase.ListID;
+import kres.realtimeshoppinglist.firebase.util.FirebaseRefs;
+import kres.realtimeshoppinglist.firebase.util.ListID;
 import kres.realtimeshoppinglist.model.ShoppingList;
 
 public class ShoppingListManager {

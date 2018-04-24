@@ -12,15 +12,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.gson.Gson;
 
 import kres.realtimeshoppinglist.R;
-import kres.realtimeshoppinglist.firebase.FirebaseRefs;
+import kres.realtimeshoppinglist.firebase.util.FirebaseRefs;
 import kres.realtimeshoppinglist.firebase.productList.ProductListChangeListener;
 import kres.realtimeshoppinglist.firebase.productList.ProductListManager;
 import kres.realtimeshoppinglist.model.ShoppingList;
 import kres.realtimeshoppinglist.util.Constants;
 import kres.realtimeshoppinglist.firebase.productList.ProductListAdapter;
 
-import kres.realtimeshoppinglist.dialog.NewProductDialog;
-import kres.realtimeshoppinglist.dialog.NewProductDialogListener;
+import kres.realtimeshoppinglist.dialog.newProduct.NewProductDialog;
+import kres.realtimeshoppinglist.dialog.newProduct.NewProductDialogListener;
 import kres.realtimeshoppinglist.model.Product;
 
 public class ProductListActivity extends AppCompatActivity implements NewProductDialogListener {

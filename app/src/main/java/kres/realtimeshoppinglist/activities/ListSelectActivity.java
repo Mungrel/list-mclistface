@@ -1,7 +1,6 @@
 package kres.realtimeshoppinglist.activities;
 
 import android.app.DialogFragment;
-import android.content.SharedPreferences;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,10 +11,8 @@ import android.widget.LinearLayout;
 import java.util.Set;
 
 import kres.realtimeshoppinglist.R;
-import kres.realtimeshoppinglist.dialog.JoinCreateDialog;
-import kres.realtimeshoppinglist.dialog.NewListDialog;
-import kres.realtimeshoppinglist.dialog.NewProductDialog;
-import kres.realtimeshoppinglist.dialog.ShoppingListUtil;
+import kres.realtimeshoppinglist.dialog.joinCreate.JoinCreateDialog;
+import kres.realtimeshoppinglist.dialog.joinCreate.ShoppingListUtil;
 import kres.realtimeshoppinglist.firebase.shoppingList.ListExistsListener;
 import kres.realtimeshoppinglist.firebase.shoppingList.ShoppingListAdapter;
 import kres.realtimeshoppinglist.firebase.shoppingList.ShoppingListManager;
