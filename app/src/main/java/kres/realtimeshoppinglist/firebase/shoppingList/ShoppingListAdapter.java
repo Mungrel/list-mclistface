@@ -11,8 +11,12 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import kres.realtimeshoppinglist.R;
 import kres.realtimeshoppinglist.activities.ProductListActivity;
+import kres.realtimeshoppinglist.dialog.remove.DeleteListDialog;
 import kres.realtimeshoppinglist.model.ShoppingList;
 import kres.realtimeshoppinglist.util.Constants;
 
@@ -22,10 +26,14 @@ public class ShoppingListAdapter {
     private LayoutInflater inflater;
     private Context context;
 
+    private List<String> listIDs;
+
     public ShoppingListAdapter(LinearLayout listLayout, Context context) {
         this.listLayout = listLayout;
         this.inflater = LayoutInflater.from(context);
         this.context = context;
+
+        this.listIDs = new ArrayList<>();
     }
 
     public void appendItem(final ShoppingList shoppingList) {
@@ -36,11 +44,14 @@ public class ShoppingListAdapter {
 
         listName.setText(shoppingList.getName());
 
+        final ShoppingListAdapter that = this;
+
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Delete button clicked
-                ShoppingListManager.deleteList(shoppingList.getId());
+                DeleteListDialog dialog = new DeleteListDialog(context, shoppingList.getId(), that);
+                dialog.show();
             }
         });
 
@@ -55,11 +66,14 @@ public class ShoppingListAdapter {
         });
 
         listLayout.addView(newItemLayout);
+        listIDs.add(shoppingList.getId());
     }
 
-    public void deleteItem(int index) {
-        if (index < listLayout.getChildCount()) {
+    public void deleteItem(String listID) {
+        int index = listIDs.indexOf(listID);
+        if (index != -1 && index < listLayout.getChildCount()) {
             listLayout.removeViewAt(index);
+            listIDs.remove(index);
         }
     }
 

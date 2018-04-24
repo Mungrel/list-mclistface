@@ -1,23 +1,26 @@
-package kres.realtimeshoppinglist.dialog.removeProduct;
+package kres.realtimeshoppinglist.dialog.remove;
 
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 
-import kres.realtimeshoppinglist.firebase.productList.ProductListManager;
+import kres.realtimeshoppinglist.firebase.shoppingList.ShoppingListAdapter;
+import kres.realtimeshoppinglist.firebase.shoppingList.ShoppingListManager;
 
-public class RemoveProductDialog {
+public class DeleteListDialog {
 
     private Context context;
     private String listID;
-    private String productID;
+
+    private ShoppingListAdapter adapter;
 
     private AlertDialog dialog;
 
-    public RemoveProductDialog(Context context, String listID, String productID) {
+    public DeleteListDialog(Context context, String listID, ShoppingListAdapter adapter) {
         this.context = context;
         this.listID = listID;
-        this.productID = productID;
+
+        this.adapter = adapter;
 
         this.dialog = build();
     }
@@ -25,13 +28,14 @@ public class RemoveProductDialog {
     private AlertDialog build() {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
-        builder.setTitle("Remove Product");
-        builder.setMessage("Remove this product?");
+        builder.setTitle("Delete List");
+        builder.setMessage("Delete this list for everyone?");
 
-        builder.setPositiveButton("Remove", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                ProductListManager.removeItem(listID, productID);
+                ShoppingListManager.deleteList(listID);
+                adapter.deleteItem(listID);
             }
         });
 
