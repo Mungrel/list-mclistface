@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import java.util.Set;
 
 import kres.realtimeshoppinglist.R;
+import kres.realtimeshoppinglist.dialog.JoinCreateDialog;
 import kres.realtimeshoppinglist.dialog.NewListDialog;
 import kres.realtimeshoppinglist.dialog.NewProductDialog;
 import kres.realtimeshoppinglist.dialog.ShoppingListUtil;
@@ -57,9 +58,9 @@ public class ListSelectActivity extends AppCompatActivity implements ShoppingLis
             @Override
             public void onClick(View v) {
                 // fab clicked
-                Log.d("PRODUCT_LIST_ACTIVITY", "FAB clicked");
-                DialogFragment fragment = new NewListDialog();
-                fragment.show(getFragmentManager(), "New List");
+                Log.d("LIST_SELECT_ACTIVITY", "FAB clicked");
+                DialogFragment fragment = new JoinCreateDialog();
+                fragment.show(getFragmentManager(), "Join/Create dialog");
             }
         });
     }
