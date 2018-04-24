@@ -1,4 +1,4 @@
-package kres.realtimeshoppinglist.dialog;
+package kres.realtimeshoppinglist.dialog.newProduct;
 
 import kres.realtimeshoppinglist.model.Product;
 

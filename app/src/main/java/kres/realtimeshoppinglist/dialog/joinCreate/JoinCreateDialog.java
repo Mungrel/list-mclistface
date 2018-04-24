@@ -1,4 +1,4 @@
-package kres.realtimeshoppinglist.dialog;
+package kres.realtimeshoppinglist.dialog.joinCreate;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -12,13 +12,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TabHost;
 
-import com.google.gson.Gson;
-
 import kres.realtimeshoppinglist.R;
 import kres.realtimeshoppinglist.firebase.shoppingList.ListExistsListener;
 import kres.realtimeshoppinglist.firebase.shoppingList.ShoppingListManager;
 import kres.realtimeshoppinglist.model.ShoppingList;
-import kres.realtimeshoppinglist.persistence.PersistenceManager;
 
 public class JoinCreateDialog extends DialogFragment {
 

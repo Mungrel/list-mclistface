@@ -19,8 +19,8 @@ import kres.realtimeshoppinglist.model.ShoppingList;
 import kres.realtimeshoppinglist.util.Constants;
 import kres.realtimeshoppinglist.firebase.productList.ProductListAdapter;
 
-import kres.realtimeshoppinglist.dialog.NewProductDialog;
-import kres.realtimeshoppinglist.dialog.NewProductDialogListener;
+import kres.realtimeshoppinglist.dialog.newProduct.NewProductDialog;
+import kres.realtimeshoppinglist.dialog.newProduct.NewProductDialogListener;
 import kres.realtimeshoppinglist.model.Product;
 
 public class ProductListActivity extends AppCompatActivity implements NewProductDialogListener {
