@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.gson.Gson;
@@ -37,6 +38,12 @@ public class ProductListActivity extends AppCompatActivity implements NewProduct
         ShoppingList shoppingList = new Gson().fromJson(shoppingListJSON, ShoppingList.class);
 
         listID = shoppingList.getId();
+
+        TextView titleBarTitle = findViewById(R.id.title_bar_title_text);
+        TextView titleBarJoinCode = findViewById(R.id.title_bar_join_code);
+
+        titleBarTitle.setText(shoppingList.getName());
+        titleBarJoinCode.setText(String.format("Join - %s", shoppingList.getId()));
 
         LinearLayout productListLayout = findViewById(R.id.product_list_layout);
         ProductListAdapter adapter = new ProductListAdapter(productListLayout, ProductListActivity.this, listID);
