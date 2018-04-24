@@ -9,4 +9,6 @@
     <string name="join">join</string>
     <string name="quantity_product_name">Quantity - Product Name</string>
     <string name="join_code">Join Code</string>
+    <string name="title">Title</string>
+    <string name="title_join">Join -</string>
 </resources>
