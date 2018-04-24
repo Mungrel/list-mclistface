@@ -57,15 +57,6 @@ public class ProductListAdapter {
             }
         });
 
-        itemCheckBox.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                RemoveProductDialog dialog = new RemoveProductDialog(context, listID, item.getID());
-                dialog.show();
-                return false;
-            }
-        });
-
         if (index >= productListLayout.getChildCount()) {
             productListLayout.addView(listItem);
         } else {
