@@ -2,6 +2,7 @@ package kres.realtimeshoppinglist.persistence;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -27,6 +28,7 @@ public class PersistenceManager {
     }
 
     public void persistKnownID(String listID) {
+        Log.d("PERSISTENCE_MANAGER", "Persisting ID: " + listID);
         Set<String> knownIDs = retrieveKnownIDs();
         knownIDs.add(listID);
 
@@ -37,6 +39,7 @@ public class PersistenceManager {
     }
 
     public void removeKnownID(String listID) {
+        Log.d("PERSISTENCE_MANAGER", "Removing ID: " + listID);
         Set<String> knownIDs = retrieveKnownIDs();
         knownIDs.remove(listID);
 
