@@ -48,6 +48,7 @@ public class ShoppingListAdapter {
             public void onClick(View v) {
                 // Delete button clicked
                 ShoppingListManager.deleteList(shoppingList.getId());
+                deleteItem(shoppingList.getId());
             }
         });
 
