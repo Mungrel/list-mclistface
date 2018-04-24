@@ -36,10 +36,6 @@ public class ProductListActivity extends AppCompatActivity implements NewProduct
         String shoppingListJSON = getIntent().getStringExtra(Constants.SHOPPING_LIST_INTENT_KEY);
         ShoppingList shoppingList = new Gson().fromJson(shoppingListJSON, ShoppingList.class);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_actionbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("My title");
-
         listID = shoppingList.getId();
 
         LinearLayout productListLayout = findViewById(R.id.product_list_layout);
