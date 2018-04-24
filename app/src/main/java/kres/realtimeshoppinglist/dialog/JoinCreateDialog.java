@@ -76,7 +76,7 @@ public class JoinCreateDialog extends DialogFragment {
 
                             @Override
                             public void onListNotFound() {
-                                // Show some error
+                                // TODO: Show some error
                             }
                         });
                         break;
