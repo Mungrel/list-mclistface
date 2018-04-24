@@ -7,7 +7,7 @@ import android.content.DialogInterface;
 import kres.realtimeshoppinglist.firebase.productList.ProductListManager;
 import kres.realtimeshoppinglist.firebase.shoppingList.ShoppingListAdapter;
 
-public class RemoveProductDialog {
+public class DeleteProductDialog {
 
     private Context context;
     private String listID;
@@ -17,7 +17,7 @@ public class RemoveProductDialog {
 
     private AlertDialog dialog;
 
-    public RemoveProductDialog(Context context, String listID, String productID, ShoppingListAdapter adapter) {
+    public DeleteProductDialog(Context context, String listID, String productID, ShoppingListAdapter adapter) {
         this.context = context;
         this.listID = listID;
         this.productID = productID;
