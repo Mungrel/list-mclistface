@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 
+import kres.realtimeshoppinglist.firebase.productList.ProductListAdapter;
 import kres.realtimeshoppinglist.firebase.productList.ProductListManager;
 import kres.realtimeshoppinglist.firebase.shoppingList.ShoppingListAdapter;
 
@@ -13,11 +14,11 @@ public class DeleteProductDialog {
     private String listID;
     private String productID;
 
-    private ShoppingListAdapter adapter;
+    private ProductListAdapter adapter;
 
     private AlertDialog dialog;
 
-    public DeleteProductDialog(Context context, String listID, String productID, ShoppingListAdapter adapter) {
+    public DeleteProductDialog(Context context, String listID, String productID, ProductListAdapter adapter) {
         this.context = context;
         this.listID = listID;
         this.productID = productID;
@@ -37,7 +38,7 @@ public class DeleteProductDialog {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 ProductListManager.removeItem(listID, productID);
-                adapter.deleteItem(listID);
+                adapter.removeItem(productID);
             }
         });
 
