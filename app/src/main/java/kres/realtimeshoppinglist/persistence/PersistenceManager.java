@@ -9,14 +9,14 @@ import java.util.Set;
 
 public class PersistenceManager {
 
-    private static final String ID_PREFS = "host_id_prefs";
+    private static final String ID_PREFS = "shopping_list_id_prefs";
     private static final String KNOWN_LISTS_SHARED_PREFERENCES_KEY = "KNOWN_LISTS";
     private static PersistenceManager instance;
 
     private SharedPreferences sharedPreferences;
 
     private PersistenceManager(Context context) {
-        sharedPreferences = context.getSharedPreferences(PersistenceManager.ID_PREFS, 0);
+        sharedPreferences = context.getSharedPreferences(PersistenceManager.ID_PREFS, Context.MODE_PRIVATE);
     }
 
     public static PersistenceManager getInstance(Context context) {
