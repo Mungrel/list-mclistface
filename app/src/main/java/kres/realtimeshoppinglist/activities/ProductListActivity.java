@@ -12,7 +12,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.gson.Gson;
 
 import kres.realtimeshoppinglist.R;
-import kres.realtimeshoppinglist.firebase.FirebaseRefs;
+import kres.realtimeshoppinglist.firebase.util.FirebaseRefs;
 import kres.realtimeshoppinglist.firebase.productList.ProductListChangeListener;
 import kres.realtimeshoppinglist.firebase.productList.ProductListManager;
 import kres.realtimeshoppinglist.model.ShoppingList;
