@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.Set;
 
@@ -30,6 +31,12 @@ public class ListSelectActivity extends AppCompatActivity implements ShoppingLis
         setContentView(R.layout.activity_list_select);
 
         LinearLayout listLayout = findViewById(R.id.list_select_list_layout);
+
+        TextView titleBarTitle = findViewById(R.id.title_bar_title_text);
+        TextView titleBarJoinCode = findViewById(R.id.title_bar_join_code);
+
+        titleBarTitle.setText(R.string.app_name);
+        titleBarJoinCode.setVisibility(View.INVISIBLE);
 
         shoppingListAdapter = new ShoppingListAdapter(listLayout, ListSelectActivity.this);
         persistenceManager = PersistenceManager.getInstance(ListSelectActivity.this);
