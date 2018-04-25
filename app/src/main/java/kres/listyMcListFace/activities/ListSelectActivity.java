@@ -35,7 +35,7 @@ public class ListSelectActivity extends AppCompatActivity implements ShoppingLis
         TextView titleBarTitle = findViewById(R.id.title_bar_title_text);
         TextView titleBarJoinCode = findViewById(R.id.title_bar_join_code);
 
-        titleBarTitle.setText(R.string.app_name);
+        titleBarTitle.setText(R.string.your_lists);
         titleBarJoinCode.setVisibility(View.INVISIBLE);
 
         shoppingListAdapter = new ShoppingListAdapter(listLayout, ListSelectActivity.this);
