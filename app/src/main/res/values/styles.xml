@@ -2,10 +2,30 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:background">@color/background</item>
+        <item name="android:background">@color/colorPrimaryDark</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="TitleText" parent="@style/TextAppearance.AppCompat.Title">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColorPrimary">@color/colorPrimary</item>
+    </style>
+
+    <style name="SubtitleText" parent="@style/TextAppearance.AppCompat.Body1">
+        <item name="android:textColorPrimary">@color/colorBodyText</item>
+        <item name="android:textColor">@color/colorBodyText</item>
+    </style>
+
+    <style name="ListItemText" parent="@style/TextAppearance.AppCompat.Headline">
+        <item name="android:textColorPrimary">@color/colorBodyText</item>
+        <item name="android:textColor">@color/colorBodyText</item>
+    </style>
+
+    <style name="TabWidgetTheme" parent="AppTheme">
+        <item name="android:textColorPrimary">@color/colorBodyText</item>
+        <item name="android:textColor">@color/colorBodyText</item>
     </style>
 
 </resources>
