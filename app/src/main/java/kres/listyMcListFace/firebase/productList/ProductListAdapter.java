@@ -93,7 +93,7 @@ public class ProductListAdapter {
     }
 
     public void updateItem(int index, Product newItem) {
-        LinearLayout listItem = (LinearLayout) productListLayout.getChildAt(index);
+        RelativeLayout listItem = (RelativeLayout) productListLayout.getChildAt(index);
         CheckBox itemCheckBox = listItem.findViewById(R.id.list_item_check_box);
 
         itemCheckBox.setText(newItem.getName());
