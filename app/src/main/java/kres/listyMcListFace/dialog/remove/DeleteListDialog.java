@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 
+import kres.listyMcListFace.dialog.DialogShowListener;
 import kres.listyMcListFace.firebase.shoppingList.ShoppingListAdapter;
 import kres.listyMcListFace.firebase.shoppingList.ShoppingListManager;
 import kres.listyMcListFace.persistence.PersistenceManager;
@@ -48,7 +49,10 @@ public class DeleteListDialog {
             }
         });
 
-        return builder.create();
+        AlertDialog alertDialog = builder.create();
+        alertDialog.setOnShowListener(new DialogShowListener(context, alertDialog));
+
+        return alertDialog;
     }
 
     public void show() {
