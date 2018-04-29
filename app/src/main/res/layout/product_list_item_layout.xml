@@ -8,10 +8,10 @@
 
     <CheckBox
         android:id="@+id/list_item_check_box"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/delete_product_button"
+        android:layout_toLeftOf="@+id/delete_product_button"
         android:text="@string/quantity_product_name"
         android:textAppearance="@style/ListItemText"
         android:textColor="@color/colorBodyText" />
