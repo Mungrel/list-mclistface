@@ -65,7 +65,7 @@ public class JoinCreateDialog extends DialogFragment {
                         utils.getAdapter().appendItem(list);
                         break;
                     case TAB_JOIN_INDEX:
-                        String joinCode = joinCodeEditText.getText().toString();
+                        String joinCode = joinCodeEditText.getText().toString().toUpperCase();
                         ShoppingListManager.getShoppingList(joinCode, new ListExistsListener() {
                             @Override
                             public void onListFound(ShoppingList list) {

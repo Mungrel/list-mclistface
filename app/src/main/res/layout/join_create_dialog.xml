@@ -36,6 +36,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/list_name"
+                        android:inputType="textCapSentences"
                         android:singleLine="true"
                         android:textColorHint="@color/colorHintText" />
                 </LinearLayout>
@@ -51,6 +52,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/join_code"
+                        android:inputType="textCapCharacters"
                         android:singleLine="true"
                         android:textColorHint="@color/colorHintText" />
                 </LinearLayout>
