@@ -59,13 +59,13 @@ public class JoinCreateDialog extends DialogFragment {
                 Log.d("NEW_LIST_DIALOG", "Positive button clicked");
                 switch(host.getCurrentTab()) {
                     case TAB_CREATE_INDEX:
-                        String newListName = listNameEditText.getText().toString();
+                        String newListName = listNameEditText.getText().toString().toUpperCase();
                         ShoppingList list = ShoppingListManager.createShoppingList(newListName);
                         utils.getPersistenceManger().persistKnownID(list.getId());
                         utils.getAdapter().appendItem(list);
                         break;
                     case TAB_JOIN_INDEX:
-                        String joinCode = joinCodeEditText.getText().toString();
+                        String joinCode = joinCodeEditText.getText().toString().toUpperCase();
                         ShoppingListManager.getShoppingList(joinCode, new ListExistsListener() {
                             @Override
                             public void onListFound(ShoppingList list) {
