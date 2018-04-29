@@ -36,7 +36,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/list_name"
-                        android:inputType="textCapCharacters"
+                        android:inputType="textPersonName"
                         android:singleLine="true"
                         android:textColorHint="@color/colorHintText" />
                 </LinearLayout>

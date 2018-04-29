@@ -59,7 +59,7 @@ public class JoinCreateDialog extends DialogFragment {
                 Log.d("NEW_LIST_DIALOG", "Positive button clicked");
                 switch(host.getCurrentTab()) {
                     case TAB_CREATE_INDEX:
-                        String newListName = listNameEditText.getText().toString().toUpperCase();
+                        String newListName = listNameEditText.getText().toString();
                         ShoppingList list = ShoppingListManager.createShoppingList(newListName);
                         utils.getPersistenceManger().persistKnownID(list.getId());
                         utils.getAdapter().appendItem(list);
