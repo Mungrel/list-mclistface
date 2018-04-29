@@ -11,8 +11,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/list_name"
-        android:layout_toStartOf="@+id/delete_product_button"
-        android:layout_toLeftOf="@+id/delete_product_button"
+        android:layout_toStartOf="@+id/delete_list_button"
+        android:layout_toLeftOf="@+id/delete_list_button"
         android:textAppearance="@style/ListItemText" />
 
     <ImageButton
