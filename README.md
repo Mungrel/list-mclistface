@@ -1,5 +1,5 @@
 # Listy McListFace
-![](https://travis-ci.org/Mungrel/real-time-shopping-list-android.svg?branch=master)
+[![Build Status](https://travis-ci.org/Mungrel/listy-mclistface.svg?branch=master)](https://travis-ci.org/Mungrel/listy-mclistface)
 
 Real time shopping list using Firebase
 
