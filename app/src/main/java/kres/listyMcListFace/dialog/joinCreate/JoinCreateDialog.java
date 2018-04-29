@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TabHost;
 
 import kres.listyMcListFace.R;
+import kres.listyMcListFace.dialog.DialogShowListener;
 import kres.listyMcListFace.firebase.shoppingList.ListExistsListener;
 import kres.listyMcListFace.firebase.shoppingList.ShoppingListManager;
 import kres.listyMcListFace.model.ShoppingList;
@@ -90,7 +91,10 @@ public class JoinCreateDialog extends DialogFragment {
             }
         });
 
-        return builder.create();
+        AlertDialog alertDialog = builder.create();
+        alertDialog.setOnShowListener(new DialogShowListener(getActivity(), alertDialog));
+
+        return alertDialog;
     }
 
     @Override

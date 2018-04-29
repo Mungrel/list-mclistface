@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import kres.listyMcListFace.R;
+import kres.listyMcListFace.dialog.DialogShowListener;
 import kres.listyMcListFace.model.Product;
 
 public class NewProductDialog extends DialogFragment {
@@ -49,7 +50,10 @@ public class NewProductDialog extends DialogFragment {
             }
         });
 
-        return builder.create();
+        AlertDialog alertDialog = builder.create();
+        alertDialog.setOnShowListener(new DialogShowListener(getActivity(), alertDialog));
+
+        return alertDialog;
     }
 
     @Override
