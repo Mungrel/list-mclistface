@@ -14,6 +14,7 @@
         android:layout_toLeftOf="@+id/delete_product_button"
         android:text="@string/quantity_product_name"
         android:textAppearance="@style/ListItemText"
+        android:buttonTint="@color/colorPrimary"
         android:textColor="@color/colorBodyText" />
 
     <ImageButton
