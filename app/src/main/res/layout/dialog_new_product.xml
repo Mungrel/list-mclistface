@@ -23,7 +23,7 @@
         android:layout_marginStart="15dp"
         android:ems="10"
         android:hint="@string/product_name"
-        android:inputType="text"
+        android:inputType="textCapSentences"
         android:textColor="@color/colorBodyText"
         android:textColorHint="@color/colorHintText" />
 
