@@ -33,10 +33,10 @@ public class EditProductDialog extends DialogFragment {
 
         builder.setView(dialogView);
 
-        builder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Update", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Log.d("NEW_PRODUCT_DIALOG", "Positive button clicked");
+                Log.d("EDIT_PRODUCT_DIALOG", "Positive button clicked");
 
                 String productName = editText.getText().toString();
                 Product product = new Product(productName);
@@ -48,7 +48,7 @@ public class EditProductDialog extends DialogFragment {
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Log.d("NEW_PRODUCT_DIALOG", "Negative button clicked");
+                Log.d("EDIT_PRODUCT_DIALOG", "Negative button clicked");
                 listener.onCancel();
             }
         });
@@ -68,7 +68,7 @@ public class EditProductDialog extends DialogFragment {
             listener = (EditProductDialogListener) activity;
         } catch (ClassCastException e) {
             // The activity doesn't implement the interface, throw exception
-            throw new ClassCastException(activity.toString() + " must implement NewProductDialogListener");
+            throw new ClassCastException(activity.toString() + " must implement EditProductDialogListener");
         }
     }
 }
