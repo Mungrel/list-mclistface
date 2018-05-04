@@ -3,6 +3,7 @@ package kres.listyMcListFace.firebase.productList;
 import android.app.Activity;
 import android.content.Context;
 import android.app.DialogFragment;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,7 @@ import kres.listyMcListFace.R;
 import kres.listyMcListFace.dialog.editProduct.EditProductDialog;
 import kres.listyMcListFace.dialog.remove.DeleteProductDialog;
 import kres.listyMcListFace.model.Product;
+import kres.listyMcListFace.util.Constants;
 
 public class ProductListAdapter {
 
@@ -86,10 +88,13 @@ public class ProductListAdapter {
             }
         });
 
-        listItem.setOnLongClickListener(new View.OnLongClickListener() {
+        itemCheckBox.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 DialogFragment dialog = new EditProductDialog();
+                Bundle bundle = new Bundle();
+                bundle.putString(Constants.EDIT_DIALOG_PRODUCT_NAME_KEY, item.getName());
+                dialog.setArguments(bundle);
                 Activity activity = (Activity)context;
                 dialog.show(activity.getFragmentManager(), "Edit Product");
                 return true;
