@@ -1,6 +1,9 @@
 package kres.listyMcListFace.firebase.productList;
 
+import android.app.Activity;
 import android.content.Context;
+import android.app.DialogFragment;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,12 +13,16 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import kres.listyMcListFace.R;
+import kres.listyMcListFace.dialog.editProduct.EditProductDialog;
 import kres.listyMcListFace.dialog.remove.DeleteProductDialog;
 import kres.listyMcListFace.model.Product;
+import kres.listyMcListFace.util.Constants;
 
 public class ProductListAdapter {
 
@@ -80,6 +87,19 @@ public class ProductListAdapter {
             public void onClick(View v) {
                 DeleteProductDialog dialog = new DeleteProductDialog(context, listID, item.getID(), that);
                 dialog.show();
+            }
+        });
+
+        itemCheckBox.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                DialogFragment dialog = new EditProductDialog();
+                Bundle bundle = new Bundle();
+                bundle.putString(Constants.EDIT_DIALOG_EXISTING_PRODUCT_JSON, new Gson().toJson(item));
+                dialog.setArguments(bundle);
+                Activity activity = (Activity)context;
+                dialog.show(activity.getFragmentManager(), "Edit Product");
+                return true;
             }
         });
 

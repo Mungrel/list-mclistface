@@ -14,6 +14,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.gson.Gson;
 
 import kres.listyMcListFace.R;
+import kres.listyMcListFace.dialog.editProduct.EditProductDialogListener;
 import kres.listyMcListFace.firebase.util.FirebaseRefs;
 import kres.listyMcListFace.firebase.productList.ProductListChangeListener;
 import kres.listyMcListFace.firebase.productList.ProductListManager;
@@ -25,7 +26,7 @@ import kres.listyMcListFace.dialog.newProduct.NewProductDialog;
 import kres.listyMcListFace.dialog.newProduct.NewProductDialogListener;
 import kres.listyMcListFace.model.Product;
 
-public class ProductListActivity extends AppCompatActivity implements NewProductDialogListener {
+public class ProductListActivity extends AppCompatActivity implements NewProductDialogListener, EditProductDialogListener {
 
     private String listID;
 
@@ -67,6 +68,12 @@ public class ProductListActivity extends AppCompatActivity implements NewProduct
     public void onProductAdded(Product product) {
         Log.d("PRODUCT_ADDED", "" + product.getName());
         ProductListManager.addItem(listID, product);
+    }
+
+    @Override
+    public void onProductNameUpdated(Product product) {
+        Log.d("PRODUCT_UPDATED", "" + product.getName());
+        ProductListManager.editItem(listID, product);
     }
 
     @Override
