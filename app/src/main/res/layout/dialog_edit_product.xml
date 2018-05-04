@@ -5,21 +5,24 @@
     android:layout_height="match_parent"
     android:gravity="center" >
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/edit_product_title_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:text="Update Item"
+        android:textAppearance="@style/TitleText"
+        android:textColor="@color/colorPrimary" />
 
-        <EditText
-            android:id="@+id/product_name_edit_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/product_name"
-            android:inputType="text"
-            android:textColor="@color/colorBodyText"
-            android:textColorHint="@color/colorHintText" />
-    </LinearLayout>
+    <EditText
+        android:id="@+id/product_name_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:ems="10"
+        android:hint="@string/product_name"
+        android:inputType="text"
+        android:textColor="@color/colorBodyText"
+        android:textColorHint="@color/colorHintText" />
 
 </LinearLayout>
