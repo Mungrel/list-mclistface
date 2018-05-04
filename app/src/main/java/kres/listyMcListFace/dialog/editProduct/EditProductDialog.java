@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 
+import com.google.gson.Gson;
+
 import kres.listyMcListFace.R;
 import kres.listyMcListFace.dialog.DialogShowListener;
 import kres.listyMcListFace.model.Product;
@@ -28,8 +30,9 @@ public class EditProductDialog extends DialogFragment {
         View dialogView = inflater.inflate(R.layout.dialog_edit_product, null);
 
         final EditText editText = dialogView.findViewById(R.id.product_name_edit_text);
-        String existingProductName = getArguments().getString(Constants.EDIT_DIALOG_PRODUCT_NAME_KEY);
-        editText.setText(existingProductName);
+        String existingProductNameJSON = getArguments().getString(Constants.EDIT_DIALOG_EXISTING_PRODUCT_JSON);
+        final Product existingProduct = new Gson().fromJson(existingProductNameJSON, Product.class);
+        editText.setText(existingProduct.getName());
 
         builder.setView(dialogView);
 
@@ -39,9 +42,9 @@ public class EditProductDialog extends DialogFragment {
                 Log.d("EDIT_PRODUCT_DIALOG", "Positive button clicked");
 
                 String productName = editText.getText().toString();
-                Product product = new Product(productName);
+                existingProduct.setName(productName);
 
-                listener.onProductNameUpdated(product);
+                listener.onProductNameUpdated(existingProduct);
             }
         });
 

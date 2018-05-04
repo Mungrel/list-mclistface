@@ -13,6 +13,8 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -93,7 +95,7 @@ public class ProductListAdapter {
             public boolean onLongClick(View v) {
                 DialogFragment dialog = new EditProductDialog();
                 Bundle bundle = new Bundle();
-                bundle.putString(Constants.EDIT_DIALOG_PRODUCT_NAME_KEY, item.getName());
+                bundle.putString(Constants.EDIT_DIALOG_EXISTING_PRODUCT_JSON, new Gson().toJson(item));
                 dialog.setArguments(bundle);
                 Activity activity = (Activity)context;
                 dialog.show(activity.getFragmentManager(), "Edit Product");
