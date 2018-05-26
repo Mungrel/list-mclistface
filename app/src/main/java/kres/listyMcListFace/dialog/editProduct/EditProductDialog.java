@@ -21,6 +21,7 @@ import kres.listyMcListFace.util.Constants;
 public class EditProductDialog extends DialogFragment {
 
     private EditProductDialogListener listener;
+    private EditText itemNameEditText;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -29,10 +30,10 @@ public class EditProductDialog extends DialogFragment {
 
         View dialogView = inflater.inflate(R.layout.dialog_edit_product, null);
 
-        final EditText editText = dialogView.findViewById(R.id.product_name_edit_text);
+        itemNameEditText = dialogView.findViewById(R.id.product_name_edit_text);
         String existingProductNameJSON = getArguments().getString(Constants.EDIT_DIALOG_EXISTING_PRODUCT_JSON);
         final Product existingProduct = new Gson().fromJson(existingProductNameJSON, Product.class);
-        editText.setText(existingProduct.getName());
+        itemNameEditText.setText(existingProduct.getName());
 
         builder.setView(dialogView);
 
@@ -41,7 +42,7 @@ public class EditProductDialog extends DialogFragment {
             public void onClick(DialogInterface dialogInterface, int i) {
                 Log.d("EDIT_PRODUCT_DIALOG", "Positive button clicked");
 
-                String productName = editText.getText().toString();
+                String productName = itemNameEditText.getText().toString();
                 existingProduct.setName(productName);
 
                 listener.onProductNameUpdated(existingProduct);
@@ -60,6 +61,10 @@ public class EditProductDialog extends DialogFragment {
         alertDialog.setOnShowListener(new DialogShowListener(getActivity(), alertDialog));
 
         return alertDialog;
+    }
+
+    public void setText(String text) {
+        itemNameEditText.setText(text);
     }
 
     @Override
