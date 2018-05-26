@@ -93,12 +93,13 @@ public class ProductListAdapter {
         itemCheckBox.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                DialogFragment dialog = new EditProductDialog();
+                EditProductDialog dialog = new EditProductDialog();
                 Bundle bundle = new Bundle();
                 bundle.putString(Constants.EDIT_DIALOG_EXISTING_PRODUCT_JSON, new Gson().toJson(item));
                 dialog.setArguments(bundle);
                 Activity activity = (Activity)context;
                 dialog.show(activity.getFragmentManager(), "Edit Product");
+                dialog.setText(item.getName());
                 return true;
             }
         });
